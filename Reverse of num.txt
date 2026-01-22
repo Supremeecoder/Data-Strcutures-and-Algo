@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int rev=0,num,num1,x;
+    cin>>num;
+    num1=num;
+    while(num!=0) {
+        x=num%10;
+        rev=rev*10+x;
+        num=num/10;
+    }
+    if(num1==rev) {
+        cout<<"true";
+    }
+    else {
+        cout<<"false";
+    }
+}

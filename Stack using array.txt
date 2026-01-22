@@ -1,0 +1,83 @@
+Stack using array
+
+
+
+
+#include <stdio.h>
+#include <conio.h>
+
+#define stringsize 5
+
+void push(char);
+char pop();
+
+int main()
+{
+    char inputstring[10];
+    char outstring[10];
+    char c1;
+    int i;
+    // input char from user
+    for (i = 0; i < stringsize; i++)
+    {
+        printf("Enter %d the character:", i + 1);
+        scanf(" %c", &c1);
+        inputstring[i] = c1;
+    }
+    // push
+    for (i = 0; i <= stringsize; i++)
+    {
+        push(inputstring[i]);
+    }
+
+    // pop to reverse string
+    for (i = 0; i < stringsize; i++)
+    {
+        outstring[i] = pop();
+    }
+    // display inputstring
+    printf("input string:- ");
+    for (i = 0; i < stringsize; i++)
+    {
+        printf("%c", inputstring[i]);
+    }
+    // display outstring
+    printf("\noutstring: ");
+    for (i = 0; i < stringsize; i++)
+    {
+        printf("%c", outstring[i]);
+    }
+
+    return 0;
+}
+// define push and pop outside main with external variable top and char stack array
+
+int top;
+char stack[stringsize];
+
+void push(char c)
+{
+    if (top < stringsize)
+    {
+        stack[top++] = c;
+    }
+    else
+    {
+        printf("stack is full\n");
+    }
+}
+
+char pop()
+{
+    char c;
+    if (top > 0)
+    {
+        c = stack[--top];
+        return c;
+    }
+    else
+    {
+        printf("stack is empty");
+        return '\0';
+    }
+}

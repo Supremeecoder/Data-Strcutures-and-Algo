@@ -1,0 +1,25 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(long int a,long int b) {
+    if(a%2==0) {
+       cout<<"YES\n";
+       return;
+    }
+    if(a%2==1 && b%2==1) {
+       cout<<"YES\n";
+       return;
+    }
+    cout<<"NO\n";
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        long long int a,b;
+        cin>>a>>b;
+        findans(a,b);
+    }
+    return 0;
+}

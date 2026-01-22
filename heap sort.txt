@@ -1,0 +1,73 @@
+Heap sort
+
+
+
+
+#include<stdio.h>
+
+void heapify(int [],int,int);
+void build_heap(int[],int);
+void heap_sort(int[],int);
+void printArray(int[], int);
+int input_arr(int[],int);
+
+int main(){
+    int A[20];
+    int n=input_arr(A,n);
+      
+    heap_sort(A,n);
+    printf("Sorted array is\n");
+    printArray(A,n);
+}
+
+void heapify(int A[],int n,int i){
+    int lchild,rchild,largest;
+    lchild = 2*i+1;
+    rchild = 2*i+2;
+    largest=i;
+
+    if(lchild < n && A[lchild]>A[largest]){
+      largest=lchild;
+    }
+    if(rchild < n && A[rchild]>A[largest]){
+        largest = rchild;
+    }
+    if(largest!= i)
+    {
+        int tmp = A[i];
+        A[i]= A[largest];
+        A[largest]=tmp;
+        heapify(A,n,largest);
+    }
+}
+
+void build_heap(int A[],int n){
+    for(int i = n/2; i >= 0;i--){
+        heapify(A,n,i);
+    }
+}
+
+void heap_sort(int A[],int n){
+    build_heap(A,n);
+    for(int i=n-1;i>0;i--){
+        int tmp=A[i];
+        A[i]=A[0];
+        A[0]=tmp;
+        heapify(A,i,0);   
+    }
+}
+
+void printArray(int A[], int n){
+    for (int i = 0; i < n; i++)
+        printf("%d ", A[i]);
+    printf("\n");
+}
+
+int input_arr(int A[],int n){
+    printf("Size of Heap : ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        printf("Enter element %d in heap : ",i);
+        scanf("%d",&A[i]);
+    } return n;
+}

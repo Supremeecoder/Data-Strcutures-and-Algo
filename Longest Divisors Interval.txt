@@ -1,0 +1,31 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(long long int num) {
+    if(num==1) {
+        return 1;
+    }
+    int count=0;
+    int res=0;
+    for(int i=1;i<=10000;i++) {
+        if(num%i==0) {
+            count++;
+            res=max(res,count);
+        } else {
+            count=0;
+        }
+    }
+    return res;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        long long int num;
+        cin>>num;
+        cout<<findans(num);
+        cout<<endl;
+    }
+    return 0;
+}

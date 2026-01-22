@@ -1,0 +1,27 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(long int num) {
+    if(num==1) {
+        cout<<"0";
+       return;
+    }
+    long int res=(sqrt(num));
+    if((res*res)==num) {
+        cout<<res-1;
+        return;
+    }
+    cout<<res;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        long int num;
+        cin>>num;
+        findans(num);
+        cout<<endl;
+    }
+    return 0;
+}

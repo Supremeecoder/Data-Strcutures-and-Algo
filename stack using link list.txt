@@ -1,0 +1,89 @@
+Stack using link list
+
+
+
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define stringsize 10
+
+typedef struct lnode *listptr;
+typedef struct lnode
+{
+    char data;
+    listptr next;
+} listnode;
+
+void push(char);
+char pop();
+
+int main()
+{
+    char inputstring[stringsize],outputstring[stringsize];
+    char c1;
+    int i;
+    
+    for(i=0;i<stringsize;i++)
+    {
+        printf("Enter the character %d : ",i+1);
+        scanf(" %c",&c1);
+        inputstring[i]=c1;
+    }
+    for(i=0;i<stringsize;i++)
+        push(inputstring[i]);
+    
+    for(i=0;i<stringsize;i++)
+        outputstring[i]=pop();
+    
+    printf("\n**INPUT**\n");
+    for(i=0;i<stringsize;i++)
+    {
+        printf("%c",inputstring[i]);
+        // printf("\n");
+    }
+    printf("\n");
+    printf("\n**OUTPUT**\n");
+    for(i=0;i<stringsize;i++)
+    {
+        printf("%c",outputstring[i]);
+        // printf("\n");
+    }
+    printf("\n");
+}
+
+listptr top;
+
+void push(char c) // calling push function and put abcd //a in char c
+{
+    listptr tmp;
+    tmp = (listptr)malloc(sizeof(listnode)); // memory allocate to listptr
+    if(tmp!=NULL)
+    {
+        tmp->data = c; 		// tmp is a pointer and it help us to put character in data i.e a
+        tmp->next = top;	// putting character i.e b
+        top = tmp;
+    }
+    else	// compile ni krega to memory allocate na kre mtlb h memory full)
+    {
+        printf("Memory full");
+    }
+}
+char pop()
+{
+    listptr tmp;	// temporary pointer
+    char c;		// c is user defined 
+    if(top!=NULL)	// top is not null
+    {
+        tmp=top;		// defines abcd // top =d
+        top = tmp->next;	// top points next of d i.e c
+        c = tmp->data;		// c me value jayegi d
+        free(tmp);		// free memory of d		
+        return c;		//return d
+    }
+    else //(top==NULL)
+    {
+        printf("Stack Empty");
+    }
+}

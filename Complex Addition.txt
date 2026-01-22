@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+class Complex
+{   
+    int x,y;
+    public:
+    Complex()
+    {
+        
+    }
+    Complex(int a,int b)
+    {
+        x=a;
+        y=b;
+    }
+    void showdata()
+    {
+        cout<<x<<" + i"<<y<<endl;
+    }
+    Complex operator +(Complex C)
+    {
+    Complex temp;
+    temp.x=x+C.x;
+    temp.y=y+C.y;
+    return temp;
+    }
+};
+int main()
+{
+    Complex C3(2,4);
+    Complex C4(4,2);
+    Complex C5=C3+C4;
+    C5.showdata();
+    return 0;
+}

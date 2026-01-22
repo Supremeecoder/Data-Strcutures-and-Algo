@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <limits.h>
+
+void mergeSort(int arr[],int start, int end);
+void merge(int arr[],int i, int k, int j);
+void printArr(int arr[], int n);
+
+int main()
+{
+	int n;
+	printf("\nEnter total no of elememts : ");
+	scanf("%d",&n);
+	
+	int arr[n];
+	for(int i=0;i<n;i++){
+		scanf("%d",&arr[i]);
+	}
+	
+	printf("\nArray before merge sort : ");
+	printArr(arr,n);
+	printf("\nArray after merge sort : ");
+	mergeSort(arr,0,n-1);
+	printArr(arr,n);
+}
+
+void mergeSort(int arr[],int i, int j){
+	if(i<j){
+		int k = (i+j)/2;
+		mergeSort(arr,i,k);
+		mergeSort(arr,k+1,j);
+		merge(arr,i,k,j);
+	}
+}
+
+void merge(int arr[], int i, int k, int j){
+	int bs = k-i+2;
+	int cs = j-k+1;
+	int b[bs], c[cs];
+	int p=0;
+	
+	while(p<bs-1)
+		b[p++] = arr[p+i];
+	b[p] = INT_MAX;
+	p=0;
+	
+	while(p<cs-1)
+		c[p++] = arr[k+p+1];
+	c[p] = INT_MAX;
+	
+	p=0;
+	int q=0,r=i-1;
+	while(r<j){
+		r++;
+		if(b[p]<c[q])
+			arr[r] =b[p++];
+		else arr[r] = c[q++]; 
+	}
+	
+}
+
+void printArr(int arr[], int n){
+	for(int i=0; i<n; i++)
+		printf("%d ",arr[i]);
+	printf("\n");
+}

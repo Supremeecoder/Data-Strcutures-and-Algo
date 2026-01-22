@@ -1,0 +1,28 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(int arr[],int num) {
+    sort(arr+1,arr+num+1);
+    int mini=INT_MAX;
+    for(int i=1;i<num;i++) {
+        if(mini>arr[i+1]-arr[i]) {
+            mini=arr[i+1]-arr[i];
+        }
+    }
+    cout<<mini<<endl;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        int arr[num+1];
+        for(int i=1;i<=num;i++) {
+           cin>>arr[i];
+        }
+        findans(arr,num);
+    }
+    return 0;
+}

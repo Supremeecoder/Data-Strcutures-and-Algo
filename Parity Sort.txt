@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+void findans(int *arr,int num) {
+    int arr1[num];
+    for(int i=0;i<num;i++) {
+        arr1[i]=arr[i];
+    }
+    sort(arr1,arr1+num);
+    int i=0;
+    while(i<num) {
+        if((arr1[i]%2==1 && arr[i]%2==1) || (arr1[i]%2==0 && arr[i]%2==0)) {
+            i++;
+        } else {
+            cout<<"NO";
+            return;
+        }
+    }
+    cout<<"YES";
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        int arr[num];
+        for(int i=0;i<num;i++) {
+            cin>>arr[i];
+        }
+        findans(arr,num);
+        cout<<endl;
+    }
+    return 0;
+}

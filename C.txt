@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+int res(string s,int len) {
+    int ans=0;
+    int i=0;
+    int j=len-1;
+    while(i<=j) {
+        if(s[i]!=s[j]) {
+            i++;
+            j--;
+            ans+=2;
+        } else {
+            break;
+        }
+    }
+    return len-ans;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    int len;
+    string s;
+    while(num--) {
+        cin>>len;
+        cin>>s;
+        cout<<res(s,len)<<endl;
+    }
+    return 0;
+}

@@ -1,0 +1,20 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    int res=floor(log10(num))+1;
+    int ans=pow(10,res-1);
+    return abs(ans-num);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        cout<<findans(num);
+        cout<<endl;
+    }
+    return 0;
+}
