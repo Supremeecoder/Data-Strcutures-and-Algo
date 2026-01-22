@@ -1,0 +1,33 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    int count=0;
+    while(num>0) {
+        if(num>=100) {
+            count=count+num/100;
+            num=num%100;
+        } else if(num>=20) {
+            count=count+num/20;
+            num=num%20;
+        } else if(num>=10) {
+            count=count+num/10;
+            num=num%10;
+        } else if(num>=5) {
+            count=count+num/5;
+            num=num%5;
+        } else {
+            count++;
+            num--;
+        }
+    }
+    return count;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<findans(num);
+    cout<<endl;
+    return 0;
+}

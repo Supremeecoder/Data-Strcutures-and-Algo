@@ -1,0 +1,19 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    int count=0;
+    int ans=0;
+    while(ans<=num) {
+        count=count+1;
+        ans=ans+(count*(count+1))/2;
+    }
+    return count-1;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    cout<<findans(t);
+    return 0;
+}

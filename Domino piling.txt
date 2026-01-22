@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+int findans(int M,int N) {
+    return (M*N)/2;
+}
+int main()
+{
+        int M;
+        int N;
+        cin>>M>>N;
+        cout<<findans(M,N);
+    return 0;
+}

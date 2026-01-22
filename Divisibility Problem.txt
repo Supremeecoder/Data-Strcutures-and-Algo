@@ -1,0 +1,23 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num,int num1) {
+    if(num%num1==0) {
+        return 0;
+    }
+    return num1-(num%num1);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        int num1;
+        cin>>num1;
+        cout<<findans(num,num1);
+        cout<<endl;
+    }
+    return 0;
+}

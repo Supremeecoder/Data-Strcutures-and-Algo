@@ -1,0 +1,29 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(string s,int num) {
+    if(num!=5) {
+        cout<<"NO";
+        return;
+    }
+    sort(s.begin(),s.end());
+    if(s[0]=='T' && s[1]=='i' && s[2]=='m' && s[3]=='r' && s[4]=='u') {
+        cout<<"YES";
+        return;
+    }
+    cout<<"NO";
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        string s;
+        cin>>num;
+        cin>>s;
+        findans(s,num);
+        cout<<endl;
+    }
+    return 0;
+}

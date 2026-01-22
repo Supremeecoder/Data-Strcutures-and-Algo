@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+void findans(string s) {
+    string s1="";
+    int len=s.size();
+    int i=0;
+    while(i<len) {
+        if(s[i]=='.') {
+            s1=s1+'0';
+            i++;
+        }
+        if(s[i]=='-' && s[i+1]=='.') {
+            s1=s1+'1';
+            i+=2;
+        }
+        if(s[i]=='-' && s[i+1]=='-') {
+            s1=s1+'2';
+            i+=2;
+        }
+    }
+    cout<<s1<<endl;
+}
+int main()
+{
+    string s;
+    cin>>s;
+    findans(s);
+    return 0;
+}

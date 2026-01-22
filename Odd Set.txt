@@ -1,0 +1,35 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(int num,int arr[]) {
+    int counte=0;
+    int counto=0;
+    for(int i=0;i<num;i++) {
+        if(arr[i]%2==0) {
+            counte++;
+        } else {
+            counto++;
+        }
+    }
+    if(counto==counte) {
+        cout<<"YES"<<endl;
+    } else {
+        cout<<"NO"<<endl;
+    }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        num=num*2;
+        int arr[num];
+        for(int i=0;i<num;i++) {
+            cin>>arr[i];
+        }
+        findans(num,arr);
+    }
+    return 0;
+}

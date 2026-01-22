@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+void findans(int num1,string s) {
+    string s1="";
+    for(int i=0;i<s.size();i++) {
+        if(s[i]==s[i+1]) {
+            continue;
+        }
+        s1=s1+s[i];
+    }
+    int count[26]={0};
+    for(int i=0;i<s1.size();i++) {
+        count[s1[i]-'A']++;
+    }
+    for(int i=0;i<26;i++) {
+        if(count[i]>1) {
+            cout<<"NO"<<endl;
+            return;
+        }
+    }
+    cout<<"YES"<<endl;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num1;
+        cin>>num1;
+        string s;
+        cin>>s;
+        findans(num1,s);
+    }
+    return 0;
+}

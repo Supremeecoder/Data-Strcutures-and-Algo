@@ -1,0 +1,20 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+string findans(int num) {
+    if(num<=2) {
+        return "NO";
+    }
+    if(num%2==0) {
+        return "YES";
+    }
+    return "NO";
+}
+int main()
+{
+        int num;
+        cin>>num;
+        cout<<findans(num);
+        cout<<endl;
+    return 0;
+}

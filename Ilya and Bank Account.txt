@@ -1,0 +1,27 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    if(num>=0) {
+        return num;
+    }
+    if(num%10==0) {
+        return (num/100-num%10)*10;
+    } else {
+        int res1=num%10;        //7
+        int res2=(num%100)/10;  //9
+        if(res1>res2) {
+            return (num/100)*10+num%10;
+        } else {
+            return num/10;
+        }
+    }
+    return 0;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<findans(num);
+    return 0;
+}

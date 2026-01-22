@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int findans(string s) {
+    int len=0;
+    string s1="314159265358979323846264338327";
+    for(int i=0;i<30;i++) {
+     if(s1[i]==s[i]) {
+         len++;
+         continue;
+     } else {
+     break;
+         
+     }
+}
+return len;
+}
+int main() {
+  int t;
+  cin>>t;
+  while(t--) {
+    string s;
+    cin>>s;
+    cout<<findans(s);
+    cout<<endl;
+  }
+return 0;
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(string s1,string s2,string s3) {
+    string s4=s1+s2;
+    if(s3.size()!=s4.size()) {
+        cout<<"NO";
+        return;
+    }
+    sort(s3.begin(),s3.end());
+    sort(s4.begin(),s4.end());
+    for(int i=0;i<s3.size();i++) {
+        if(s3[i]==s4[i]) {
+            continue;
+        } else {
+            cout<<"NO";
+            return;
+        }
+    }
+    cout<<"YES";
+}
+int main()
+{
+    string s1,s2,s3;
+    cin>>s1>>s2>>s3;
+    findans(s1,s2,s3);
+    return 0;
+}

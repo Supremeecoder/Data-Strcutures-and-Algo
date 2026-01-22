@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int findans(int num) {
+    if(num%2==0) {
+        return num/2;
+    }
+    return (num/2)+1;
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+        cin>>num;
+        cout<<findans(num);
+        cout<<endl;
+    }
+    return 0;
+}

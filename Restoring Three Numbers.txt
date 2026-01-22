@@ -1,0 +1,32 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(int num1,int num2,int num3,int num4) {
+    int res=max(num1,num2);
+    int res1=max(res,num3);
+    int res2=max(res1,num4);
+    int count=0;
+    if((res2-num1)!=0) {
+        cout<<res2-num1<<" ";
+        count++;
+    }
+    if((res2-num2)!=0) {
+        cout<<res2-num2<<" ";
+        count++;
+    }
+    if((res2-num3)!=0 && count==1) {
+        cout<<res2-num3<<" ";
+    } else if((res2-num3)!=0){
+        cout<<res2-num3;
+    }
+    if((res2-num4)!=0) {
+        cout<<res2-num4;
+    }
+}
+int main()
+{
+    int num1,num2,num3,num4;
+    cin>>num1>>num2>>num3>>num4;
+    findans(num1,num2,num3,num4);
+    return 0;
+}

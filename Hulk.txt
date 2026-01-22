@@ -1,0 +1,28 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(int num) {
+    string str1="I hate ";
+    string str2="I love ";
+    string ans="";
+    for(int i=0;i<num;i++) {
+        if(i%2==0) {
+            ans=ans+str1;
+        } else {
+            ans=ans+str2;
+        }
+        if(i==num-1) {
+            break;
+        }
+        ans=ans+"that ";
+    }
+    ans=ans+"it";
+    cout<<ans<<endl;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    findans(num);
+    return 0;
+}

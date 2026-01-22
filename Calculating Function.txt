@@ -1,0 +1,22 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    int counte=0;
+    int counto=0;
+    for(int i=1;i<=num;i++) {
+        if(i%2==0) {
+            counte=counte+i;
+        } else {
+            counto=counto+i;
+        }
+    }
+    return counte-counto;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<findans(num);
+    return 0;
+}

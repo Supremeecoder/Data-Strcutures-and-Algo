@@ -1,0 +1,31 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(string s) {
+    if(s.size()%2==1) {
+        cout<<"NO";
+        return;
+    }
+    int len=s.size()/2;
+    for(int i=0;i<len;i++) {
+        if(s[i]==s[i+len]) {
+            continue;
+        } else {
+            cout<<"NO";
+            return;
+        }
+    }
+    cout<<"YES";
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        string s;
+        cin>>s;
+        findans(s);
+        cout<<endl;
+    }
+    return 0;
+}

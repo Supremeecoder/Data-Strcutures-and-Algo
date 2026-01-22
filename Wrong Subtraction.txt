@@ -1,0 +1,22 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num,int k) {
+    while(k--) {
+        if(num%10==0) {
+            num=num/10;
+        } else {
+            num--;
+        }
+    }
+    return num;
+}
+int main()
+{
+    int num;
+    int k;
+    cin>>num;
+    cin>>k;
+    cout<<findans(num,k);
+    return 0;
+}

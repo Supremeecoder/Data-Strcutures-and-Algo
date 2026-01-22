@@ -1,0 +1,25 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+ll findans(ll num,ll k) {
+    if(num%2==1) {
+        num=num+1;
+    }
+    if(k<=(num/2)) {
+        return k*2-1;
+    } else {
+        return 2*(k-(num/2));
+    }
+    return 0;
+}
+int main()
+{
+        ll num;
+        cin>>num;
+        ll num1;
+        cin>>num1;
+        cout<<findans(num,num1);
+        cout<<endl;
+    return 0;
+}

@@ -1,0 +1,18 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int findans(int num) {
+    int ans=1;
+    while(num>5) {
+        num-=5;
+        ans++;
+    }
+    return ans;
+}
+int main()
+{
+    int num;
+    cin>>num;
+    cout<<findans(num);
+    return 0;
+}

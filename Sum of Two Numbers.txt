@@ -1,0 +1,30 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void findans(int num) {
+    int j=num;
+    for(int i=0;i<num && j>=0;i++) {
+            if((i+j)==num) {
+            int num1=i;
+            int num2=j;
+            int sum1=num1>0?floor(log10(num1))+1:0;
+            int sum2=num2>0?floor(log10(num2))+1:0;
+            if(abs(sum1-sum2)==0 || abs(sum1-sum2)==1) {
+            cout<<i<<" "<<j<<endl;
+            break;
+        }
+            }
+        j--;
+    }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--) {
+        int num;
+    cin>>num;
+    findans(num);
+    }
+    return 0;
+}

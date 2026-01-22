@@ -1,0 +1,59 @@
+#include <iostream>
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll findans(ll count1,ll count0,ll ans1) {
+    ll ans=ans1*ans1;
+    ll countx=count0*1ll*count1;
+    return max(ans,countx);
+}
+ll maxsubstring(string s,ll len) {
+        if(len==1)
+        {
+            return 1;
+        }
+        ll count1=0;
+        ll count0=0;
+        ll res1=INT_MIN;
+        ll res2=INT_MIN;
+        for(ll i=0;i<len;i++) {
+            if(s[i]=='1') {
+                count1++;
+            }
+            if(s[i]=='0') {
+                count0++;
+            }
+        }
+        ll countcons1=1;
+        ll countcons0=1;
+        for(ll i=0;i<len-1;i++) {
+            if(s[i]=='1' && s[i+1]=='1') {
+                countcons1++;
+                res1=max(res1,countcons1);
+            } else {
+                countcons1=1;
+            }
+            if(s[i]=='0' && s[i+1]=='0') {
+                countcons0++;
+                res2=max(res2,countcons0);
+            } else {
+                countcons0=1;
+            }
+        }
+        ll ans1=res1>res2?res1:res2;
+        ll ans=findans(count1,count0,ans1);
+        return ans;
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--) {
+        ll len;
+        string s;
+        cin>>len;
+        cin>>s;
+        cout<<maxsubstring(s,len)<<endl;
+    }
+    return 0;
+}
