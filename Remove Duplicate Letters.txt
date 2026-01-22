@@ -1,0 +1,25 @@
+class Solution {
+public:
+    string removeDuplicateLetters(string s) {
+       vector<int> ans(26);
+        vector<bool> vis(26);
+        string s1="";
+        int len=s.size();
+        for(int i=0;i<len;i++) {
+            ans[s[i]-'a']=i;
+        }
+        for(int i=0;i<len;i++) {
+            if(vis[s[i]-'a']) {
+                continue;
+            }
+            while(!s1.empty() && s1.back() > s[i] && ans[s1.back()-'a']>i) {
+                vis[s1.back()-'a']=false;
+                s1.pop_back();
+            }
+            s1.push_back(s[i]);
+            vis[s[i]-'a']=true;
+        }
+        return s1;
+        
+    }
+};

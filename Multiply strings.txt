@@ -1,0 +1,47 @@
+class Solution {
+public:
+    string multiply(string num1, string num2) {
+        reverse(num1.begin(),num1.end());
+        reverse(num2.begin(),num2.end());
+        string ans= "0";
+        int carry=0;
+        for(int i=0;i<num2.length();i++)
+        {
+            for(int j=0;j<num1.length();j++)
+            {
+                int n1= num1[j]-'0';
+                int n2= num2[i]-'0';
+                int num=n1*n2;
+                num+=carry;
+                int prev=0;
+                if(ans.length()-2>=i+j)
+                {
+                    prev=ans[i+j+1];    
+                }
+                num+=prev;
+                int digit = num%10;
+                int carry = num/10;
+                // cout<<num<<" "<<digit<<" ";
+                if(ans.length()-1 <= i+j)
+                {
+                    ans.push_back(digit+'0');
+                }
+                else{
+                    ans[i+j+1]=digit+'0';
+                }
+                cout<<ans<<" "<<carry<<"\n";
+            }
+            while(carry)
+            {
+                ans.push_back(carry%10+'0');
+            }
+            cout<<ans<<"\n";
+            cout<<"\n\n";
+        }
+        
+        
+        reverse(ans.begin(),ans.end());
+        ans.pop_back();
+        return ans;
+    }
+};

@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+void findans(int x,int y,int n,int r) {
+    if(r<(x*n)) {
+        cout<<"-1"<<endl;
+        return;
+    }
+    int res=(r-n*x)/(y-x);
+    res=min(res,n);
+    int a=n-res;
+    cout<<a<<" "<<res<<endl;
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t--) {
+	    int x,y,n,r;
+	    cin>>x>>y>>n>>r;
+	    findans(x,y,n,r);
+	}
+	return 0;
+}
